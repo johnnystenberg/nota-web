@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Support — nota.</title>
+<meta name="description" content="Help with nota. — how to split a restaurant bill, get paid with Swish, Vipps or MobilePay, and manage sessions." />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ctext x='4' y='23' font-family='Helvetica,Arial,sans-serif' font-size='18' font-weight='700' fill='white'%3Enota%3C/text%3E%3Ccircle cx='27' cy='21' r='2.6' fill='%23BFF233'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#000; --card:#161616; --ink:#fff; --sub:#a1a1a1; --faint:#6f6f6f; --line:rgba(255,255,255,0.10); --accent:#BFF233; --body:"Hanken Grotesk",system-ui,sans-serif; }
+  *{ box-sizing:border-box; } body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+  header{ border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(12px); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .wm{ font-weight:800; font-size:24px; letter-spacing:-1px; } .wm .dot{ color:var(--accent); }
+  .back{ color:var(--sub); font-size:14.5px; }
+  main{ padding:56px 0 80px; }
+  h1{ font-size:clamp(30px,5vw,42px); letter-spacing:-1px; margin:0 0 8px; }
+  .lede{ color:var(--sub); font-size:17px; margin-bottom:34px; }
+  .faq{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px 22px; margin-bottom:12px; }
+  details{ padding:16px 0; } details + details{ border-top:1px solid var(--line); }
+  summary{ font-weight:700; font-size:16.5px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; color:var(--accent); font-size:22px; font-weight:400; }
+  details[open] summary::after{ content:"–"; }
+  details p{ color:#d6d6d6; font-size:15.5px; margin:12px 0 4px; }
+  .contact{ margin-top:40px; background:var(--accent); color:#000; border-radius:18px; padding:30px 28px; }
+  .contact h2{ margin:0 0 6px; font-size:24px; letter-spacing:-0.5px; }
+  .contact p{ margin:0 0 16px; color:rgba(0,0,0,0.75); font-weight:500; }
+  .contact a.btn{ display:inline-flex; align-items:center; background:#000; color:#fff; font-weight:700; padding:13px 22px; border-radius:12px; }
+  footer{ border-top:1px solid var(--line); padding:28px 0; color:var(--faint); font-size:13.5px; }
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="wm" href="index.html">nota<span class="dot">.</span></a><a class="back" href="index.html">← Back to nota.</a></div></header>
+<main><div class="wrap">
+  <h1>Support</h1>
+  <p class="lede">Everything you need to split a bill, get paid, and manage your sessions.</p>
+
+  <div class="faq">
+    <details open><summary>Do my guests need to install anything?</summary><p>No. You have the app; your guests just open the link or scan the QR code in their phone's browser. They tap what they had and pay you — no download, no account.</p></details>
+    <details><summary>How do guests pay me?</summary><p>With one tap the guest's bank app opens with the exact amount pre-filled: Swish in Sweden, Vipps in Norway, MobilePay in Denmark and Finland. The money goes straight to your number — nota. never touches it.</p></details>
+    <details><summary>What if a guest doesn't have the payment app?</summary><p>The guest can still copy your number and amount and pay any way they like, then tap “Paid another way” to mark themselves done. As the host you can also mark anyone as paid.</p></details>
+    <details><summary>How do we split a shared plate or bottle?</summary><p>Everyone who shared it taps the same row. The price splits evenly between them, down to the öre, so the total always adds up exactly.</p></details>
+    <details><summary>Can I add a tip?</summary><p>Yes — add a tip on the whole bill and it's spread proportionally across each person's share. Amounts already paid aren't affected.</p></details>
+    <details><summary>What happens to my data?</summary><p>Receipt photos are read on your device and never uploaded. The shared session is automatically deleted from the server 24 hours after it's created. See the <a href="privacy.html">privacy policy</a> for details.</p></details>
+    <details><summary>What's free and what's Pro?</summary><p>Splitting bills and getting paid is always free, including manual entry. The free plan includes 5 receipt scans per month. Pro adds unlimited scans, saved history and CSV export.</p></details>
+    <details><summary>The scan didn't read my receipt correctly.</summary><p>Try again in good light with the receipt flat, or tap “Enter the bill manually” — you can add, edit and duplicate rows freely (handy for “2 × beer”).</p></details>
+  </div>
+
+  <div class="contact">
+    <h2>Still stuck?</h2>
+    <p>Email us and we'll get back to you.</p>
+    <a class="btn" href="mailto:johnny.stenberg@gmail.com">Email support</a>
+  </div>
+</div></main>
+<footer><div class="wrap">© 2026 nota. · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></div></footer>
+</body>
+</html>

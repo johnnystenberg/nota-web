@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy — nota.</title>
+<meta name="description" content="nota. privacy policy: guests need no account, receipts are scanned on-device, and every session is deleted after 24 hours." />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ctext x='4' y='23' font-family='Helvetica,Arial,sans-serif' font-size='18' font-weight='700' fill='white'%3Enota%3C/text%3E%3Ccircle cx='27' cy='21' r='2.6' fill='%23BFF233'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#000; --card:#161616; --ink:#fff; --sub:#a1a1a1; --faint:#6f6f6f; --line:rgba(255,255,255,0.10); --accent:#BFF233; --body:"Hanken Grotesk",system-ui,sans-serif; }
+  *{ box-sizing:border-box; } body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.62; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+  header{ border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(12px); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .wm{ font-family:var(--body); font-weight:800; font-size:24px; letter-spacing:-1px; } .wm .dot{ color:var(--accent); }
+  .back{ color:var(--sub); font-size:14.5px; }
+  main{ padding:56px 0 80px; }
+  h1{ font-size:clamp(30px,5vw,42px); letter-spacing:-1px; margin:0 0 8px; }
+  .updated{ color:var(--faint); font-size:14px; margin-bottom:34px; }
+  h2{ font-size:20px; margin:38px 0 10px; letter-spacing:-0.3px; }
+  p, li{ color:#d6d6d6; font-size:16px; } p{ margin:0 0 14px; }
+  ul{ padding-left:20px; margin:0 0 14px; } li{ margin:6px 0; }
+  .lede{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 24px; color:#eaeaea; }
+  strong{ color:#fff; }
+  footer{ border-top:1px solid var(--line); padding:28px 0; color:var(--faint); font-size:13.5px; }
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="wm" href="index.html">nota<span class="dot">.</span></a><a class="back" href="index.html">← Back to nota.</a></div></header>
+<main><div class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated 15 July 2026</p>
+
+  <p class="lede">nota. is built to hold as little of your data as possible. Guests never create an account, receipt photos are read on your own device, and every shared session is automatically deleted after 24 hours. There is no advertising and nothing is sold.</p>
+
+  <h2>Who this covers</h2>
+  <p>This policy applies to the nota. iPhone app and the guest web pages at <strong>notan.nu</strong> used to split a bill.</p>
+
+  <h2>What the host's app stores</h2>
+  <ul>
+    <li><strong>Your name and payment number</strong> (Swish / Vipps / MobilePay) — stored only in your device's Keychain so guests can pay you. Synced through your own iCloud if enabled; never sent to us.</li>
+    <li><strong>Receipt photos</strong> — read on-device using Apple's Vision framework. The photo never leaves your phone. Only the extracted text of the item rows is sent to structure the bill.</li>
+    <li><strong>Session history</strong> (Pro) — stored locally and in your private iCloud. It is not on our servers.</li>
+  </ul>
+
+  <h2>What the shared session stores (temporarily)</h2>
+  <p>When you create a bill to split, a session is stored on our backend so guests can open the link and claim their items. It contains the item names and prices, the first names guests type in, who claimed what, and payment status. It contains <strong>no</strong> photos and <strong>no</strong> guest accounts.</p>
+  <p><strong>Every session is permanently deleted 24 hours after it is created</strong>, automatically. Closing the bill in the app also ends it.</p>
+
+  <h2>What guests provide</h2>
+  <p>A guest only types a first name so the table can tell each other apart. No login, no email, no phone number is required to claim items. Payment happens in the guest's own bank app — nota. never sees or processes any money.</p>
+
+  <h2>Receipt text processing</h2>
+  <p>To turn a scanned receipt into tappable rows, the extracted <strong>text</strong> (not the image) is sent to an AI model via our server and returned as a structured list of items and prices. This text is processed transiently to produce the result and is not used to train models or retained beyond the request.</p>
+
+  <h2>Payments</h2>
+  <p>Guests pay the host directly through Swish, Vipps or MobilePay. nota. only pre-fills the amount and opens the payment app; it is not a payment processor, takes no fees, and never holds funds.</p>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li>No advertising and no ad tracking.</li>
+    <li>No selling or sharing of personal data.</li>
+    <li>No accounts or profiles for guests.</li>
+  </ul>
+
+  <h2>Your control</h2>
+  <p>You can edit your name and payment number in Settings at any time, and close or delete a session from the app. Because sessions self-delete after 24 hours, most data disappears on its own.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? Email <a href="mailto:johnny.stenberg@gmail.com">johnny.stenberg@gmail.com</a>.</p>
+</div></main>
+<footer><div class="wrap">© 2026 nota. · <a href="index.html">Home</a> · <a href="support.html">Support</a></div></footer>
+</body>
+</html>

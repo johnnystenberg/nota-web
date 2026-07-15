@@ -7,6 +7,7 @@ Static site served via GitHub Pages.
 - `index.html` — landing page (EN/SV)
 - `privacy.html` — privacy policy (App Store)
 - `support.html` — support / FAQ (App Store)
+- `demo.html` — sample receipts for App Review testing (noindex)
 - `assets/screens/` — app screenshots
 
 The guest web app lives separately at [app.notan.nu](https://app.notan.nu). This marketing site is served at [notan.nu](https://notan.nu).

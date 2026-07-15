@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>nota. — Sample receipts (App Review)</title>
+<meta name="description" content="Sample restaurant receipts for testing nota. without a real bill. Tap a receipt to enlarge it, then scan it with the app's camera." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ctext x='4' y='23' font-family='Helvetica,Arial,sans-serif' font-size='18' font-weight='700' fill='white'%3Enota%3C/text%3E%3Ccircle cx='27' cy='21' r='2.6' fill='%23BFF233'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#000000; --card:#161616; --soft:#1e1e1e;
+    --ink:#ffffff; --sub:#a1a1a1; --faint:#6f6f6f;
+    --line:rgba(255,255,255,0.10); --accent:#BFF233; --accentDim:rgba(191,242,51,0.14);
+    --display:"Hanken Grotesk", system-ui, sans-serif;
+    --body:"Hanken Grotesk", system-ui, sans-serif;
+    --mono:"Space Mono", ui-monospace, monospace;
+    --inset: inset 0 0 0 1px var(--line);
+    --maxw: 1080px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3{ font-family:var(--display); font-weight:800; margin:0; letter-spacing:-0.6px; line-height:1.06; }
+  p{ margin:0; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+  .eyebrow{ font-size:clamp(11px,1.2vw,13px); font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--accent); }
+  .wm{ font-family:var(--display); font-weight:800; letter-spacing:-1px; } .wm .dot{ color:var(--accent); }
+
+  header.site{ position:sticky; top:0; z-index:50; background:rgba(0,0,0,0.78); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:66px; gap:16px; }
+  .wm.brand{ font-size:26px; }
+  .back{ font-weight:600; font-size:14px; color:var(--sub); box-shadow:var(--inset); height:42px; padding:0 16px; border-radius:12px; display:inline-flex; align-items:center; gap:8px; }
+  .back:hover{ background:var(--soft); }
+
+  .intro{ padding:clamp(36px,6vw,64px) 0 8px; }
+  .intro h1{ font-size:clamp(30px,4.6vw,44px); letter-spacing:-1px; margin-top:12px; }
+  .intro .lede{ color:var(--sub); font-size:clamp(15px,1.7vw,18px); margin-top:14px; max-width:62ch; }
+  ol.how{ counter-reset:s; list-style:none; margin:26px 0 0; padding:0; display:grid; gap:12px; max-width:720px; }
+  ol.how li{ position:relative; padding:14px 16px 14px 52px; background:var(--card); border-radius:14px; box-shadow:var(--inset); color:var(--sub); font-size:15px; }
+  ol.how li b{ color:var(--ink); }
+  ol.how li::before{ counter-increment:s; content:counter(s); position:absolute; left:14px; top:13px; width:24px; height:24px; border-radius:8px; background:var(--accentDim); color:var(--accent); font-family:var(--mono); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  .note{ margin-top:18px; display:flex; gap:9px; align-items:flex-start; color:var(--faint); font-size:13.5px; max-width:720px; }
+  .note svg{ width:17px; height:17px; flex:0 0 auto; margin-top:1px; color:var(--accent); }
+
+  section.receipts{ padding:clamp(40px,6vw,72px) 0 clamp(56px,8vw,96px); }
+  .sec-head h2{ font-size:clamp(24px,3.4vw,34px); letter-spacing:-0.8px; margin-top:12px; }
+  .sec-head p{ color:var(--sub); margin-top:12px; max-width:62ch; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:18px; margin-top:30px; }
+
+  /* A receipt is a light "paper" card so the document scanner locks onto its
+     edges and Vision reads the dark monospace text cleanly off a screen. */
+  .receipt{ background:#fbfbf7; color:#141414; border-radius:6px; box-shadow:var(--inset), 0 14px 30px -18px rgba(0,0,0,.7); padding:22px 22px 26px; cursor:pointer; user-select:none; transition:transform .14s ease; font-family:var(--mono); position:relative; }
+  .receipt:hover{ transform:translateY(-3px); }
+  /* perforated top edge */
+  .receipt::before{ content:""; position:absolute; top:-1px; left:0; right:0; height:8px; background:linear-gradient(135deg, transparent 66%, #fbfbf7 66%) repeat-x, linear-gradient(225deg, transparent 66%, #fbfbf7 66%) repeat-x; background-size:12px 8px; background-position:0 0; }
+  .receipt .rhead{ text-align:center; margin-bottom:12px; }
+  .receipt .rhead .name{ font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:-0.3px; color:#141414; }
+  .receipt .rhead .meta{ font-size:.72rem; color:#8a8a80; margin-top:3px; letter-spacing:0.2px; }
+  .receipt .sep{ border-top:1px dashed #c9c9bf; margin:10px 0; }
+  .receipt .row{ display:flex; justify-content:space-between; gap:10px; font-size:.82rem; padding:3px 0; color:#222; }
+  .receipt .row .n{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .receipt .row .p{ white-space:nowrap; }
+  .receipt .row.dim{ color:#8a8a80; }
+  .receipt .row.tot{ font-weight:700; font-size:.92rem; color:#141414; }
+  .receipt .cap{ font-family:var(--body); font-size:.72rem; color:#9a9a90; margin-top:14px; text-align:center; line-height:1.4; }
+
+  /* lightbox — opaque dark so only one receipt is visible to the camera */
+  #box{ position:fixed; inset:0; background:#050505; display:none; align-items:center; justify-content:center; padding:5vh 20px; z-index:80; }
+  #box.open{ display:flex; }
+  #box .receipt{ cursor:default; width:min(92vw,440px); padding:34px 34px 40px; }
+  #box .receipt .rhead .name{ font-size:1.5rem; }
+  #box .receipt .rhead .meta{ font-size:.9rem; }
+  #box .receipt .row{ font-size:1.12rem; padding:5px 0; }
+  #box .receipt .row.tot{ font-size:1.25rem; }
+  #box .receipt .cap{ display:none; }
+  #box .close{ position:fixed; top:16px; right:22px; color:#fff; font-size:2.2rem; line-height:1; }
+  #box .hint{ position:fixed; bottom:20px; left:0; right:0; text-align:center; color:var(--faint); font-size:13px; }
+
+  footer.site{ border-top:1px solid var(--line); padding:36px 0 48px; color:var(--faint); font-size:13.5px; }
+  footer.site a{ color:var(--sub); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="wm brand" href="/" aria-label="nota home">nota<span class="dot">.</span></a>
+    <a class="back" href="/"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> notan.nu</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="wrap">
+      <p class="eyebrow">For App Review</p>
+      <h1>Sample receipts — test without a real bill.</h1>
+      <p class="lede">nota. splits a restaurant bill: the host scans the paper receipt, then guests open a link and claim what they had. You can test the whole flow right here — no real receipt needed. Tap a receipt below to enlarge it on this screen, then scan it with the app.</p>
+      <ol class="how">
+        <li><b>Open nota.</b> and complete the one-time setup (your name + a payment number — any number works for testing).</li>
+        <li>Tap <b>“Scan the receipt”</b>, then <b>tap a receipt below</b> to enlarge it and point the camera at this screen. Good light, no glare — hold steady until it captures.</li>
+        <li>The items appear as editable rows. Tap <b>“Create session”</b> — a QR code and a link (<b>app.notan.nu/j/…</b>) are generated.</li>
+        <li><b>Open that link in any browser</b> (this device or another) to see the guest side: tap items, see your share, and a payment button appears.</li>
+      </ol>
+      <p class="note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        If scanning off a screen is tricky, the app also lets you <b>enter a bill manually</b> (always free) — same result. Receipt photos are read on-device; nothing is uploaded except the text of the items.
+      </p>
+    </div>
+  </section>
+
+  <section class="receipts">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tap to enlarge, then scan</p>
+        <h2>Four receipts to try</h2>
+        <p>Rendered as crisp monospace on light “paper” so the camera reads them cleanly. Each covers a different case.</p>
+      </div>
+      <div class="grid" id="grid">
+
+        <div class="receipt">
+          <div class="rhead"><div class="name">Kvarnen</div><div class="meta">STOCKHOLM · BORD 12</div></div>
+          <div class="sep"></div>
+          <div class="row"><span class="n">Margherita</span><span class="p">129,00</span></div>
+          <div class="row"><span class="n">Husets sallad</span><span class="p">95,00</span></div>
+          <div class="row"><span class="n">Öl 40cl</span><span class="p">79,00</span></div>
+          <div class="row"><span class="n">Cortado</span><span class="p">39,00</span></div>
+          <div class="sep"></div>
+          <div class="row tot"><span class="n">TOTALT</span><span class="p">342,00</span></div>
+          <div class="cap">Simple bill — four items</div>
+        </div>
+
+        <div class="receipt">
+          <div class="rhead"><div class="name">Pizzeria Napoli</div><div class="meta">KVITTO 2048</div></div>
+          <div class="sep"></div>
+          <div class="row"><span class="n">2 x Öl 40cl</span><span class="p">158,00</span></div>
+          <div class="row"><span class="n">Margherita</span><span class="p">129,00</span></div>
+          <div class="row"><span class="n">Calzone</span><span class="p">145,00</span></div>
+          <div class="row"><span class="n">Tiramisu</span><span class="p">95,00</span></div>
+          <div class="sep"></div>
+          <div class="row tot"><span class="n">TOTALT</span><span class="p">527,00</span></div>
+          <div class="cap">Quantities — “2 ×” expands to per-unit rows</div>
+        </div>
+
+        <div class="receipt">
+          <div class="rhead"><div class="name">Trattoria Verde</div><div class="meta">GÖTEBORG · 18:42</div></div>
+          <div class="sep"></div>
+          <div class="row"><span class="n">Antipasti</span><span class="p">145,00</span></div>
+          <div class="row"><span class="n">Pasta Carbonara</span><span class="p">165,00</span></div>
+          <div class="row"><span class="n">Vino Rosso glas</span><span class="p">98,00</span></div>
+          <div class="row"><span class="n">Vino Rosso glas</span><span class="p">98,00</span></div>
+          <div class="row"><span class="n">Panna cotta</span><span class="p">89,00</span></div>
+          <div class="row"><span class="n">Rabatt stamkund</span><span class="p">-50,00</span></div>
+          <div class="sep"></div>
+          <div class="row dim"><span class="n">Delsumma</span><span class="p">545,00</span></div>
+          <div class="row dim"><span class="n">Moms 12%</span><span class="p">58,39</span></div>
+          <div class="row tot"><span class="n">ATT BETALA</span><span class="p">545,00</span></div>
+          <div class="cap">Discount + VAT/subtotal lines are ignored</div>
+        </div>
+
+        <div class="receipt">
+          <div class="rhead"><div class="name">Fjellstua</div><div class="meta">OSLO · BORD 4</div></div>
+          <div class="sep"></div>
+          <div class="row"><span class="n">Fiskesuppe</span><span class="p">149,00</span></div>
+          <div class="row"><span class="n">Reinsdyrgryte</span><span class="p">289,00</span></div>
+          <div class="row"><span class="n">Øl 0,5l</span><span class="p">99,00</span></div>
+          <div class="row"><span class="n">Kaffe</span><span class="p">45,00</span></div>
+          <div class="sep"></div>
+          <div class="row tot"><span class="n">TOTALT</span><span class="p">582,00</span></div>
+          <div class="cap">Nordic bill — set country to Norway (Vipps)</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">This page exists only to make App Review testing easy. nota. is on-device and needs no account for guests · <a href="/">notan.nu</a></div>
+</footer>
+
+<div id="box" aria-hidden="true">
+  <a href="#" class="close" id="close" aria-label="Close">&times;</a>
+  <div id="boxContent"></div>
+  <div class="hint">Point the app's camera at this receipt · tap ✕ or press Esc to close</div>
+</div>
+
+<script>
+  var box = document.getElementById('box');
+  var boxContent = document.getElementById('boxContent');
+  function openBox(html){ boxContent.innerHTML = html; box.classList.add('open'); box.setAttribute('aria-hidden','false'); }
+  function closeBox(e){ if(e) e.preventDefault(); box.classList.remove('open'); box.setAttribute('aria-hidden','true'); }
+  document.getElementById('grid').addEventListener('click', function(e){
+    var r = e.target.closest('.receipt'); if(r) openBox(r.outerHTML);
+  });
+  document.getElementById('close').addEventListener('click', closeBox);
+  box.addEventListener('click', function(e){ if(e.target === box) closeBox(e); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeBox(); });
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>nota. — Split the restaurant bill, no app for your guests</title>
 <meta name="description" content="One person scans the receipt. Everyone else opens a link, taps what they had, and pays you back — Swish, Vipps or MobilePay. No app, no account for your guests. Receipts scanned on-device." />
-<link rel="canonical" href="https://johnnystenberg.github.io/nota-web/" />
+<link rel="canonical" href="https://notan.nu/" />
 <meta name="theme-color" content="#000000" />
 
 <!-- Open Graph / Twitter -->
@@ -13,15 +13,15 @@
 <meta property="og:title" content="nota. — Split the bill, no app for your guests" />
 <meta property="og:description" content="Scan the receipt, share a QR code, and everyone taps what they had in their browser — then pays you directly. Nordic-ready: Swish, Vipps, MobilePay." />
 <meta property="og:image" content="assets/screens/editor.png" />
-<meta property="og:url" content="https://johnnystenberg.github.io/nota-web/" />
+<meta property="og:url" content="https://notan.nu/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="nota. — Split the bill, no app for your guests" />
 <meta name="twitter:description" content="Scan the receipt, share a QR code, everyone pays you directly. No app for guests." />
 <meta name="twitter:image" content="assets/screens/editor.png" />
 
-<link rel="alternate" hreflang="en" href="https://johnnystenberg.github.io/nota-web/?lang=en" />
-<link rel="alternate" hreflang="sv" href="https://johnnystenberg.github.io/nota-web/?lang=sv" />
-<link rel="alternate" hreflang="x-default" href="https://johnnystenberg.github.io/nota-web/" />
+<link rel="alternate" hreflang="en" href="https://notan.nu/?lang=en" />
+<link rel="alternate" hreflang="sv" href="https://notan.nu/?lang=sv" />
+<link rel="alternate" hreflang="x-default" href="https://notan.nu/" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ctext x='4' y='23' font-family='Helvetica,Arial,sans-serif' font-size='18' font-weight='700' fill='white'%3Enota%3C/text%3E%3Ccircle cx='27' cy='21' r='2.6' fill='%23BFF233'/%3E%3C/svg%3E" />
 
@@ -144,6 +144,26 @@
   .step h3{ font-family:var(--body); font-weight:700; font-size:17px; letter-spacing:0; }
   .step p{ margin-top:4px; color:var(--sub); font-size:14.5px; }
   @media (max-width:820px){ .how-grid{ grid-template-columns:1fr; } .how-grid .stage{ order:-1; } }
+
+  /* share flow — two phones (host QR + guest browser) */
+  .share{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,56px); align-items:start; margin-top:46px; }
+  .share .col{ text-align:center; }
+  .share .cap{ margin-top:20px; }
+  .share .cap .k{ font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:0.3px; }
+  .share .cap h3{ font-family:var(--body); font-weight:700; font-size:18px; letter-spacing:0; margin-top:6px; }
+  .share .cap p{ margin-top:6px; color:var(--sub); font-size:14.5px; max-width:30ch; margin-left:auto; margin-right:auto; }
+  .share .phone{ width:min(270px,86%); margin:0 auto; }
+  /* browser variant: Safari-style address bar above the page */
+  .phone.browser::before{ display:none; }
+  .phone.browser .chrome{ background:#1c1c1e; border-radius:34px 34px 0 0; padding:12px 14px 10px; }
+  .phone.browser .statusbar{ display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:600; color:#fff; padding:2px 8px 8px; }
+  .phone.browser .statusbar .dots{ display:flex; gap:5px; align-items:center; }
+  .phone.browser .statusbar .dots span{ width:5px; height:5px; border-radius:50%; background:#fff; opacity:.85; }
+  .phone.browser .urlbar{ display:flex; align-items:center; justify-content:center; gap:7px; background:#2c2c2e; border-radius:11px; height:38px; color:#c9c9cf; font-size:13.5px; }
+  .phone.browser .urlbar svg{ width:12px; height:12px; opacity:.7; }
+  .phone.browser .pageimg{ border-radius:0 0 34px 34px; overflow:hidden; background:#000; }
+  .phone.browser .pageimg img{ border-radius:0; }
+  @media (max-width:720px){ .share{ grid-template-columns:1fr; gap:44px; } .share .phone{ width:min(280px,76%); } }
 
   /* features */
   .feat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:42px; }
@@ -300,6 +320,46 @@
     </div>
   </section>
 
+  <!-- SHARE FLOW -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head" style="max-width:680px;">
+        <p class="eyebrow" data-i18n="share.eyebrow">The share flow</p>
+        <h2 data-i18n="share.h2">One code on the table. Everyone pays their part.</h2>
+        <p data-i18n="share.sub">You show the QR code; each guest opens it in their own browser, taps what they had, and pays you — no app, no account.</p>
+      </div>
+      <div class="share">
+        <div class="col">
+          <div class="phone reveal">
+            <img src="assets/screens/qr.png" alt="nota host screen showing a QR code to share the bill" width="1179" height="2556" />
+          </div>
+          <div class="cap">
+            <span class="k" data-i18n="share.k1">The host</span>
+            <h3 data-i18n="share.h1t">Show the QR code</h3>
+            <p data-i18n="share.h1p">QR at the table, or send the link by SMS — whatever suits the group.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="phone browser reveal">
+            <div class="chrome">
+              <div class="statusbar"><span>15:33</span><span class="dots"><span></span><span></span><span></span></span></div>
+              <div class="urlbar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                app.notan.nu/j/7H2M4X
+              </div>
+            </div>
+            <div class="pageimg"><img src="assets/screens/guest.png" alt="nota guest view in the browser — tapping items and paying" width="1170" height="1875" /></div>
+          </div>
+          <div class="cap">
+            <span class="k" data-i18n="share.k2">The guest</span>
+            <h3 data-i18n="share.h2t">Just a link in the browser</h3>
+            <p data-i18n="share.h2p">Tap your dishes, see your share, pay with one tap. Nothing to install.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FEATURES -->
   <section>
     <div class="wrap">
@@ -437,6 +497,9 @@
       "how.s2t":"Show the QR code","how.s2p":"The table scans it with their camera — or you send the link by SMS. No app, no sign-up.",
       "how.s3t":"Everyone taps what they had","how.s3p":"Guests pick their dishes in the browser. Shared a bottle of wine? Both tap it and the price splits to the öre.",
       "how.s4t":"They pay you directly","how.s4p":"One tap opens Swish, Vipps or MobilePay with the exact amount. The money goes straight to you — the app never touches it.",
+      "share.eyebrow":"The share flow","share.h2":"One code on the table. Everyone pays their part.","share.sub":"You show the QR code; each guest opens it in their own browser, taps what they had, and pays you \u2014 no app, no account.",
+      "share.k1":"The host","share.h1t":"Show the QR code","share.h1p":"QR at the table, or send the link by SMS \u2014 whatever suits the group.",
+      "share.k2":"The guest","share.h2t":"Just a link in the browser","share.h2p":"Tap your dishes, see your share, pay with one tap. Nothing to install.",
       "feat.eyebrow":"Everything the host needs","feat.h2":"Made for the person who paid.","feat.sub":"You put the whole bill on your card. nota. gets you paid back — accurately, without the group-chat maths.",
       "f1t":"On-device scanning","f1p":"The receipt photo never leaves your phone. Apple's Vision reads it locally.",
       "f2t":"QR, link or SMS","f2p":"Share however the table prefers — scan at the table, or text the ones who left early.",
@@ -469,6 +532,9 @@
       "how.s2t":"Visa QR-koden","how.s2p":"Bordet skannar med kameran — eller så skickar du länken via SMS. Ingen app, ingen registrering.",
       "how.s3t":"Alla trycker på det de åt","how.s3p":"Gästerna väljer sina rätter i webbläsaren. Delade en flaska vin? Båda trycker och priset delas på öret.",
       "how.s4t":"De betalar dig direkt","how.s4p":"Ett tryck öppnar Swish, Vipps eller MobilePay med exakt belopp. Pengarna går rakt till dig — appen rör dem aldrig.",
+      "share.eyebrow":"Dela-flödet","share.h2":"En kod på bordet. Alla betalar sin del.","share.sub":"Du visar QR-koden; varje gäst öppnar den i sin egen webbläsare, trycker på det de åt och betalar dig — ingen app, inget konto.",
+      "share.k1":"Värden","share.h1t":"Visa QR-koden","share.h1p":"QR vid bordet, eller skicka länken via SMS — som passar sällskapet.",
+      "share.k2":"Gästen","share.h2t":"Bara en länk i webbläsaren","share.h2p":"Tryck på dina rätter, se din del, betala med ett tryck. Inget att installera.",
       "feat.eyebrow":"Allt värden behöver","feat.h2":"Gjord för den som lade ut.","feat.sub":"Du la hela notan på ditt kort. nota. ser till att du får tillbaka — exakt, utan mattetuggande i gruppchatten.",
       "f1t":"Skanning på enheten","f1p":"Kvittofotot lämnar aldrig telefonen. Apples Vision läser det lokalt.",
       "f2t":"QR, länk eller SMS","f2p":"Dela som bordet vill — skanna vid bordet eller sms:a de som gick tidigt.",

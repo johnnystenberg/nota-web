@@ -9,4 +9,4 @@ Static site served via GitHub Pages.
 - `support.html` — support / FAQ (App Store)
 - `assets/screens/` — app screenshots
 
-The guest web app lives separately at [notan.nu](https://notan.nu).
+The guest web app lives separately at [app.notan.nu](https://app.notan.nu). This marketing site is served at [notan.nu](https://notan.nu).

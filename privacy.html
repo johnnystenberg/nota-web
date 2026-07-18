@@ -34,26 +34,27 @@
 <header><div class="wrap nav"><a class="wm" href="index.html">nota<span class="dot">.</span></a><a class="back" href="index.html">← Back to nota.</a></div></header>
 <main><div class="wrap">
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated 15 July 2026</p>
+  <p class="updated">Last updated 18 July 2026</p>
 
   <p class="lede">nota. is built to hold as little of your data as possible. Guests never create an account, receipt photos are read on your own device, and every shared session is automatically deleted after 24 hours. There is no advertising and nothing is sold.</p>
 
   <h2>Who this covers</h2>
-  <p>This policy applies to the nota. iPhone app and the guest web pages at <strong>app.notan.nu</strong> used to split a bill.</p>
+  <p>This policy applies to the nota. apps for iPhone and Android and the guest web pages at <strong>app.notan.nu</strong> used to split a bill.</p>
 
   <h2>What the host's app stores</h2>
   <ul>
-    <li><strong>Your name and payment number</strong> (Swish / Vipps / MobilePay) — stored only in your device's Keychain so guests can pay you. Synced through your own iCloud if enabled; never sent to us.</li>
-    <li><strong>Receipt photos</strong> — read on-device using Apple's Vision framework. The photo never leaves your phone. Only the extracted text of the item rows is sent to structure the bill.</li>
-    <li><strong>Session history</strong> (Pro) — stored locally and in your private iCloud. It is not on our servers.</li>
+    <li><strong>Your name and payment number</strong> (Swish / Vipps / MobilePay) — stored on your device (the Keychain on iPhone, encrypted storage on Android; synced through your own iCloud if enabled). When you share a bill, the number is sent with that session so guests and co-hosts can pay you — and deleted together with the session.</li>
+    <li><strong>Receipt photos</strong> — read on your own device (Apple's Vision on iPhone, Google's ML Kit on Android). The photo never leaves your phone. Only the extracted text of the item rows is sent to structure the bill.</li>
+    <li><strong>Session history</strong> (Pro) — stored locally on your device (and synced through your private iCloud on iPhone). It is not on our servers.</li>
   </ul>
 
   <h2>What the shared session stores (temporarily)</h2>
-  <p>When you create a bill to split, a session is stored on our backend so guests can open the link and claim their items. It contains the item names and prices, the first names guests type in, who claimed what, and payment status. It contains <strong>no</strong> photos and <strong>no</strong> guest accounts.</p>
+  <p>When you create a bill to split, a session is stored on our backend so guests can open the link and claim their items. It contains the item names and prices, the first names guests type in, who claimed what, payment status, and the payment numbers of the host and any co-hosts (so guests can pay them). It contains <strong>no</strong> photos and <strong>no</strong> guest accounts.</p>
   <p><strong>Every session is permanently deleted 24 hours after it is created</strong>, automatically. Closing the bill in the app also ends it.</p>
 
   <h2>What guests provide</h2>
   <p>A guest only types a first name so the table can tell each other apart. No login, no email, no phone number is required to claim items. Payment happens in the guest's own bank app — nota. never sees or processes any money.</p>
+  <p>A friend who fronted their own receipt can join as a co-host — they provide a first name and their payment number, which are stored with the session and deleted with it.</p>
 
   <h2>Receipt text processing</h2>
   <p>To turn a scanned receipt into tappable rows, the extracted <strong>text</strong> (not the image) is sent to an AI model via our server and returned as a structured list of items and prices. This text is processed transiently to produce the result and is not used to train models or retained beyond the request.</p>
@@ -72,7 +73,7 @@
   <p>You can edit your name and payment number in Settings at any time, and close or delete a session from the app. Because sessions self-delete after 24 hours, most data disappears on its own.</p>
 
   <h2>Contact</h2>
-  <p>Questions about privacy? Email <a href="mailto:johnny.stenberg@gmail.com">johnny.stenberg@gmail.com</a>.</p>
+  <p>Questions about privacy? Email <a href="mailto:support@notan.nu">support@notan.nu</a>.</p>
 </div></main>
 <footer><div class="wrap">© 2026 nota. · <a href="index.html">Home</a> · <a href="support.html">Support</a></div></footer>
 </body>

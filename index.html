@@ -296,7 +296,7 @@
       </div>
       <div class="stage">
         <div class="phone reveal">
-          <img src="assets/screens/editor.png" alt="nota app showing a restaurant bill ready to split" width="1179" height="2556" />
+          <img src="assets/screens/editor.png" data-shot="editor" alt="nota app showing a restaurant bill ready to split" width="1320" height="2868" />
         </div>
         <div class="receipt reveal" aria-hidden="true">
           <div class="rw">nota<span class="dot">.</span></div>
@@ -327,7 +327,7 @@
           </div>
         </div>
         <div class="stage">
-          <div class="phone reveal"><img src="assets/screens/live-status.png" alt="nota live status — who has paid, tracked in real time with co-hosts" width="1206" height="2622" /></div>
+          <div class="phone reveal"><img src="assets/screens/live-status.png" data-shot="live-status" alt="nota live status — who has paid, tracked in real time with co-hosts" width="1320" height="2868" /></div>
         </div>
       </div>
     </div>
@@ -344,7 +344,7 @@
       <div class="share">
         <div class="col">
           <div class="phone reveal">
-            <img src="assets/screens/qr.png" alt="nota host screen showing a QR code to share the bill" width="1179" height="2556" />
+            <img src="assets/screens/qr.png" data-shot="qr" alt="nota host screen showing a QR code to share the bill" width="1320" height="2868" />
           </div>
           <div class="cap">
             <span class="k" data-i18n="share.k1">The host</span>
@@ -361,7 +361,7 @@
                 app.notan.nu/j/7H2M4X
               </div>
             </div>
-            <div class="pageimg"><img src="assets/screens/guest.png" alt="nota guest view in the browser — your share and a one-tap Swish button" width="1206" height="1995" /></div>
+            <div class="pageimg"><img src="assets/screens/guest.png" data-shot="guest" alt="nota guest view in the browser — your share and a one-tap payment button" width="1170" height="1975" /></div>
           </div>
           <div class="cap">
             <span class="k" data-i18n="share.k2">The guest</span>
@@ -710,6 +710,10 @@
     });
     document.getElementById("langLabel").textContent = LANGS[lang] || "English";
     document.querySelectorAll("#langMenu li").forEach(li=>li.setAttribute("aria-selected", li.dataset.lang===lang ? "true":"false"));
+    // Skärmbilderna följer språket (rätt betalmetod/valuta per marknad).
+    document.querySelectorAll("img[data-shot]").forEach(img=>{
+      img.src = `assets/screens/${lang}/${img.getAttribute("data-shot")}.png`;
+    });
     try{ localStorage.setItem("nota-lang", lang); }catch(e){}
   }
   function pickInitial(){

@@ -268,7 +268,7 @@
         <h1 data-i18n-html="hero.h1">Split the bill. <span class="em">No app</span> for your guests.</h1>
         <p class="sub" data-i18n="hero.sub">One person scans the receipt. Everyone else opens a link, taps what they had, and pays you back — Swish, Vipps or MobilePay. No downloads, no accounts.</p>
         <div class="hero-cta">
-          <a class="store" href="https://apps.apple.com/app/id6790315232" aria-label="Download nota on the App Store">
+          <a class="store" href="https://apps.apple.com/se/app/id6790315232" aria-label="Download nota on the App Store">
             <svg viewBox="0 0 180 54" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <rect width="180" height="54" rx="12" fill="#161616" stroke="rgba(255,255,255,0.12)"/>
               <g fill="#fff">
@@ -464,7 +464,7 @@
       <h2 data-i18n-html="final.h2">Stop chasing your friends for <span class="wm2">their</span> share.</h2>
       <p data-i18n="final.p">nota. is on the App Store — Android is coming soon. Split the bill, get paid, move on with the evening.</p>
       <div class="badges">
-        <a class="store" href="https://apps.apple.com/app/id6790315232" aria-label="Download nota on the App Store">
+        <a class="store" href="https://apps.apple.com/se/app/id6790315232" aria-label="Download nota on the App Store">
           <svg viewBox="0 0 180 54" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <rect width="180" height="54" rx="12" fill="#161616" stroke="rgba(255,255,255,0.12)"/>
             <g fill="#fff">
@@ -717,10 +717,11 @@
       img.src = `assets/screens/${lang}/${img.getAttribute("data-shot")}.png`;
     });
     // App Store-länken följer språket till rätt nordisk butik (appen säljs bara
-    // i SE/NO/DK/FI). Landslös länk för en → geo-omdirigerar besökaren.
-    const cc = {sv:"se", nb:"no", da:"dk", fi:"fi"}[lang];
-    const asUrl = cc ? `https://apps.apple.com/${cc}/app/id6790315232`
-                     : "https://apps.apple.com/app/id6790315232";
+    // i SE/NO/DK/FI). Den landslösa länken geo-omdirigerar INTE pålitligt utan
+    // defaultar till US → 404; en/okänt språk pekar därför på hemmamarknaden se
+    // (visar appens engelska listning, alltid 200).
+    const cc = {sv:"se", nb:"no", da:"dk", fi:"fi", en:"se"}[lang] || "se";
+    const asUrl = `https://apps.apple.com/${cc}/app/id6790315232`;
     document.querySelectorAll("a.store").forEach(a=>{ a.href = asUrl; });
     try{ localStorage.setItem("nota-lang", lang); }catch(e){}
   }

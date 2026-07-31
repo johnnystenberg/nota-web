@@ -73,6 +73,8 @@
   .store{ display:inline-flex; }
   .store svg{ height:54px; width:auto; display:block; transition:transform .18s ease; }
   .store.soon{ opacity:.5; cursor:default; }
+  .store[href]{ cursor:pointer; }
+  .store[href]:hover svg{ transform:translateY(-2px); }
 
   /* tile */
   .tile{ width:44px; height:44px; border-radius:12px; flex:0 0 auto; display:flex; align-items:center; justify-content:center; background:var(--accentDim); color:var(--accent); }
@@ -266,16 +268,16 @@
         <h1 data-i18n-html="hero.h1">Split the bill. <span class="em">No app</span> for your guests.</h1>
         <p class="sub" data-i18n="hero.sub">One person scans the receipt. Everyone else opens a link, taps what they had, and pays you back — Swish, Vipps or MobilePay. No downloads, no accounts.</p>
         <div class="hero-cta">
-          <span class="store soon" aria-label="Coming soon to the App Store" title="Coming soon">
+          <a class="store" href="https://apps.apple.com/app/id6790315232" aria-label="Download nota on the App Store">
             <svg viewBox="0 0 180 54" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <rect width="180" height="54" rx="12" fill="#161616" stroke="rgba(255,255,255,0.12)"/>
               <g fill="#fff">
                 <path d="M37 26.9c0-3 2.4-4.4 2.5-4.5-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-1.9 0-3.7 1.1-4.7 2.9-2 3.5-.5 8.7 1.4 11.5.9 1.4 2 2.9 3.5 2.9 1.4-.1 1.9-.9 3.6-.9s2.2.9 3.7.9c1.5 0 2.5-1.4 3.4-2.8 1.1-1.6 1.5-3.1 1.6-3.2-.1 0-3-1.2-3-4.4zM34.2 18.2c.8-1 1.3-2.3 1.2-3.7-1.1 0-2.5.8-3.3 1.7-.7.8-1.4 2.2-1.2 3.5 1.3.1 2.5-.6 3.3-1.5z"/>
-                <text x="54" y="24" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#a1a1a1" data-i18n="badge.soon">Coming soon to the</text>
+                <text x="54" y="24" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#a1a1a1" data-i18n="badge.download">Download on the</text>
                 <text x="54" y="41" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">App Store</text>
               </g>
             </svg>
-          </span>
+          </a>
           <span class="store soon" aria-label="Coming soon to Google Play" title="Coming soon to Google Play">
             <svg viewBox="0 0 180 54" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <rect width="180" height="54" rx="12" fill="#161616" stroke="rgba(255,255,255,0.12)"/>
@@ -460,18 +462,18 @@
   <section id="get" class="final">
     <div class="wrap">
       <h2 data-i18n-html="final.h2">Stop chasing your friends for <span class="wm2">their</span> share.</h2>
-      <p data-i18n="final.p">nota. is coming to the App Store and Google Play. Split the bill, get paid, move on with the evening.</p>
+      <p data-i18n="final.p">nota. is on the App Store — Android is coming soon. Split the bill, get paid, move on with the evening.</p>
       <div class="badges">
-        <span class="store soon" aria-label="Coming soon to the App Store" title="Coming soon">
+        <a class="store" href="https://apps.apple.com/app/id6790315232" aria-label="Download nota on the App Store">
           <svg viewBox="0 0 180 54" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <rect width="180" height="54" rx="12" fill="#161616" stroke="rgba(255,255,255,0.12)"/>
             <g fill="#fff">
               <path d="M37 26.9c0-3 2.4-4.4 2.5-4.5-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-1.9 0-3.7 1.1-4.7 2.9-2 3.5-.5 8.7 1.4 11.5.9 1.4 2 2.9 3.5 2.9 1.4-.1 1.9-.9 3.6-.9s2.2.9 3.7.9c1.5 0 2.5-1.4 3.4-2.8 1.1-1.6 1.5-3.1 1.6-3.2-.1 0-3-1.2-3-4.4zM34.2 18.2c.8-1 1.3-2.3 1.2-3.7-1.1 0-2.5.8-3.3 1.7-.7.8-1.4 2.2-1.2 3.5 1.3.1 2.5-.6 3.3-1.5z"/>
-              <text x="54" y="24" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#a1a1a1" data-i18n="badge.soon">Coming soon to the</text>
+              <text x="54" y="24" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#a1a1a1" data-i18n="badge.download">Download on the</text>
               <text x="54" y="41" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">App Store</text>
             </g>
           </svg>
-        </span>
+        </a>
         <span class="store soon" aria-label="Coming soon to Google Play" title="Coming soon to Google Play">
           <svg viewBox="0 0 180 54" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <rect width="180" height="54" rx="12" fill="#161616" stroke="rgba(255,255,255,0.12)"/>
@@ -515,7 +517,7 @@
       "nav.get":"Get the app","hero.eyebrow":"Split the restaurant bill · iPhone & Android",
       "hero.h1":"Split the bill. <span class=\"em\">No app</span> for your guests.",
       "hero.sub":"One person scans the receipt. Everyone else opens a link, taps what they had, and pays you back — Swish, Vipps or MobilePay. No downloads, no accounts.",
-      "hero.how":"See how it works","badge.soon":"Coming soon to the",
+      "hero.how":"See how it works","badge.soon":"Coming soon to the","badge.download":"Download on the",
       "hero.t1":"No app for guests","hero.t2":"Receipts scanned on-device","hero.t3":"Deleted after 24h",
       "how.eyebrow":"How it works","how.h2":"Four taps from receipt to paid.",
       "how.s1t":"Scan the receipt","how.s1p":"Snap the paper receipt — the text is read on your device and split into tappable rows. Or type it in by hand.",
@@ -545,14 +547,14 @@
       "priv.i2t":"Photos stay on your phone","priv.i2p":"The receipt is read on-device — only the text of the items is ever sent.",
       "priv.i3t":"Gone in 24 hours","priv.i3p":"Every session is automatically deleted from the server after a day.",
       "priv.cardBig":"The app never touches the money.","priv.cardP":"Guests pay you directly through their own bank app. nota. just does the maths and shows the amount — no processing, no fees, no middleman.",
-      "final.h2":"Stop chasing your friends for <span class=\"wm2\">their</span> share.","final.p":"nota. is coming to the App Store and Google Play. Split the bill, get paid, move on with the evening.",
+      "final.h2":"Stop chasing your friends for <span class=\"wm2\">their</span> share.","final.p":"nota. is on the App Store — Android is coming soon. Split the bill, get paid, move on with the evening.",
       "foot.tag":"Split the restaurant bill without an app for your guests.","foot.how":"How it works","foot.get":"Get the app","foot.privacy":"Privacy","foot.support":"Support","foot.made":"Made in Sweden · Private by design"
     },
     sv: {
       "nav.get":"Hämta appen","hero.eyebrow":"Dela restaurangnotan · iPhone & Android",
       "hero.h1":"Dela notan. <span class=\"em\">Ingen app</span> för gästerna.",
       "hero.sub":"En person skannar kvittot. Alla andra öppnar en länk, trycker på det de åt och betalar tillbaka — Swish, Vipps eller MobilePay. Inga nedladdningar, inga konton.",
-      "hero.how":"Se hur det funkar","badge.soon":"Kommer snart till",
+      "hero.how":"Se hur det funkar","badge.soon":"Kommer snart till","badge.download":"Ladda ner på",
       "hero.t1":"Ingen app för gästerna","hero.t2":"Kvitton skannas på enheten","hero.t3":"Raderas efter 24h",
       "how.eyebrow":"Så funkar det","how.h2":"Fyra tryck från kvitto till betalt.",
       "how.s1t":"Skanna kvittot","how.s1p":"Fota papperskvittot — texten läses på din enhet och delas upp i tryckbara rader. Eller skriv in det för hand.",
@@ -582,14 +584,14 @@
       "priv.i2t":"Foton stannar i telefonen","priv.i2p":"Kvittot läses på enheten — bara texten på rätterna skickas någonsin.",
       "priv.i3t":"Borta på 24 timmar","priv.i3p":"Varje session raderas automatiskt från servern efter ett dygn.",
       "priv.cardBig":"Appen rör aldrig pengarna.","priv.cardP":"Gästerna betalar dig direkt via sin egen bankapp. nota. gör bara uträkningen och visar beloppet — ingen hantering, inga avgifter, ingen mellanhand.",
-      "final.h2":"Sluta jaga dina vänner för <span class=\"wm2\">deras</span> del.","final.p":"nota. kommer snart till App Store och Google Play. Dela notan, få betalt, fortsätt kvällen.",
+      "final.h2":"Sluta jaga dina vänner för <span class=\"wm2\">deras</span> del.","final.p":"nota. finns på App Store — Android kommer snart. Dela notan, få betalt, fortsätt kvällen.",
       "foot.tag":"Dela restaurangnotan utan en app för gästerna.","foot.how":"Så funkar det","foot.get":"Hämta appen","foot.privacy":"Integritet","foot.support":"Support","foot.made":"Gjord i Sverige · Privat i grunden"
     },
     fi: {
       "nav.get":"Hae sovellus","hero.eyebrow":"Jaa ravintolalasku · iPhone & Android",
       "hero.h1":"Jaa lasku. <span class=\"em\">Ei sovellusta</span> vieraille.",
       "hero.sub":"Yksi skannaa kuitin. Kaikki muut avaavat linkin, napauttavat mitä söivät ja maksavat sinulle takaisin — Swish, Vipps tai MobilePay. Ei latauksia, ei tilejä.",
-      "hero.how":"Katso miten se toimii","badge.soon":"Tulossa pian",
+      "hero.how":"Katso miten se toimii","badge.soon":"Tulossa pian","badge.download":"Lataa",
       "hero.t1":"Ei sovellusta vieraille","hero.t2":"Kuitit skannataan laitteella","hero.t3":"Poistetaan 24h jälkeen",
       "how.eyebrow":"Näin se toimii","how.h2":"Neljä napautusta kuitista maksettuun.",
       "how.s1t":"Skannaa kuitti","how.s1p":"Kuvaa paperikuitti — teksti luetaan laitteellasi ja jaetaan napautettaviin riveihin. Tai kirjoita se käsin.",
@@ -619,14 +621,14 @@
       "priv.i2t":"Kuvat pysyvät puhelimessasi","priv.i2p":"Kuitti luetaan laitteella — vain annosten teksti lähetetään koskaan.",
       "priv.i3t":"Poissa 24 tunnissa","priv.i3p":"Jokainen istunto poistetaan palvelimelta automaattisesti vuorokauden jälkeen.",
       "priv.cardBig":"Sovellus ei koske rahoihin koskaan.","priv.cardP":"Vieraat maksavat sinulle suoraan omalla pankkisovelluksellaan. nota. vain laskee ja näyttää summan — ei käsittelyä, ei maksuja, ei välikättä.",
-      "final.h2":"Lopeta kavereidesi jahtaaminen <span class=\"wm2\">heidän</span> osuutensa perässä.","final.p":"nota. tulee pian App Storeen ja Google Playhin. Jaa lasku, saa maksut, jatka iltaa.",
+      "final.h2":"Lopeta kavereidesi jahtaaminen <span class=\"wm2\">heidän</span> osuutensa perässä.","final.p":"nota. on nyt App Storessa — Android tulossa pian. Jaa lasku, saa maksut, jatka iltaa.",
       "foot.tag":"Jaa ravintolalasku ilman sovellusta vieraille.","foot.how":"Näin se toimii","foot.get":"Hae sovellus","foot.privacy":"Yksityisyys","foot.support":"Tuki","foot.made":"Tehty Ruotsissa · Yksityinen jo lähtökohtaisesti"
     },
     nb: {
       "nav.get":"Hent appen","hero.eyebrow":"Del restaurantregningen · iPhone & Android",
       "hero.h1":"Del regningen. <span class=\"em\">Ingen app</span> for gjestene.",
       "hero.sub":"Én person skanner kvitteringen. Alle andre åpner en lenke, trykker på det de spiste og betaler deg tilbake — Swish, Vipps eller MobilePay. Ingen nedlastinger, ingen kontoer.",
-      "hero.how":"Se hvordan det funker","badge.soon":"Kommer snart til",
+      "hero.how":"Se hvordan det funker","badge.soon":"Kommer snart til","badge.download":"Last ned på",
       "hero.t1":"Ingen app for gjestene","hero.t2":"Kvitteringer skannes på enheten","hero.t3":"Slettes etter 24t",
       "how.eyebrow":"Slik funker det","how.h2":"Fire trykk fra kvittering til betalt.",
       "how.s1t":"Skann kvitteringen","how.s1p":"Ta bilde av papirkvitteringen — teksten leses på enheten din og deles opp i trykkbare linjer. Eller skriv den inn for hånd.",
@@ -656,14 +658,14 @@
       "priv.i2t":"Bilder blir på telefonen","priv.i2p":"Kvitteringen leses på enheten — bare teksten på rettene sendes noen gang.",
       "priv.i3t":"Borte på 24 timer","priv.i3p":"Hver økt slettes automatisk fra serveren etter et døgn.",
       "priv.cardBig":"Appen rører aldri pengene.","priv.cardP":"Gjestene betaler deg direkte via sin egen bankapp. nota. gjør bare utregningen og viser beløpet — ingen håndtering, ingen avgifter, ingen mellommann.",
-      "final.h2":"Slutt å jage vennene dine for <span class=\"wm2\">deres</span> del.","final.p":"nota. kommer snart til App Store og Google Play. Del regningen, få betalt, fortsett kvelden.",
+      "final.h2":"Slutt å jage vennene dine for <span class=\"wm2\">deres</span> del.","final.p":"nota. er på App Store — Android kommer snart. Del regningen, få betalt, fortsett kvelden.",
       "foot.tag":"Del restaurantregningen uten en app for gjestene.","foot.how":"Slik funker det","foot.get":"Hent appen","foot.privacy":"Personvern","foot.support":"Support","foot.made":"Laget i Sverige · Privat i bunn"
     },
     da: {
       "nav.get":"Hent appen","hero.eyebrow":"Del restaurantregningen · iPhone & Android",
       "hero.h1":"Del regningen. <span class=\"em\">Ingen app</span> til gæsterne.",
       "hero.sub":"Én person scanner kvitteringen. Alle andre åbner et link, trykker på det de fik og betaler tilbage — Swish, Vipps eller MobilePay. Ingen downloads, ingen konti.",
-      "hero.how":"Se hvordan det virker","badge.soon":"Kommer snart til",
+      "hero.how":"Se hvordan det virker","badge.soon":"Kommer snart til","badge.download":"Hent i",
       "hero.t1":"Ingen app til gæsterne","hero.t2":"Kvitteringer scannes på enheden","hero.t3":"Slettes efter 24t",
       "how.eyebrow":"Sådan virker det","how.h2":"Fire tryk fra kvittering til betalt.",
       "how.s1t":"Scan kvitteringen","how.s1p":"Fotografér papirkvitteringen — teksten læses på din enhed og deles op i trykbare linjer. Eller indtast den i hånden.",
@@ -693,7 +695,7 @@
       "priv.i2t":"Fotos bliver på din telefon","priv.i2p":"Kvitteringen læses på enheden — kun teksten på retterne sendes nogensinde.",
       "priv.i3t":"Væk på 24 timer","priv.i3p":"Hver session slettes automatisk fra serveren efter et døgn.",
       "priv.cardBig":"Appen rører aldrig pengene.","priv.cardP":"Gæsterne betaler dig direkte via deres egen bankapp. nota. laver bare udregningen og viser beløbet — ingen håndtering, ingen gebyrer, ingen mellemmand.",
-      "final.h2":"Stop med at jagte dine venner for <span class=\"wm2\">deres</span> del.","final.p":"nota. kommer snart til App Store og Google Play. Del regningen, få betaling, fortsæt aftenen.",
+      "final.h2":"Stop med at jagte dine venner for <span class=\"wm2\">deres</span> del.","final.p":"nota. er i App Store — Android kommer snart. Del regningen, få betaling, fortsæt aftenen.",
       "foot.tag":"Del restaurantregningen uden en app til gæsterne.","foot.how":"Sådan virker det","foot.get":"Hent appen","foot.privacy":"Privatliv","foot.support":"Support","foot.made":"Lavet i Sverige · Privat i bunden"
     },
   };

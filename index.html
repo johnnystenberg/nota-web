@@ -716,6 +716,12 @@
     document.querySelectorAll("img[data-shot]").forEach(img=>{
       img.src = `assets/screens/${lang}/${img.getAttribute("data-shot")}.png`;
     });
+    // App Store-länken följer språket till rätt nordisk butik (appen säljs bara
+    // i SE/NO/DK/FI). Landslös länk för en → geo-omdirigerar besökaren.
+    const cc = {sv:"se", nb:"no", da:"dk", fi:"fi"}[lang];
+    const asUrl = cc ? `https://apps.apple.com/${cc}/app/id6790315232`
+                     : "https://apps.apple.com/app/id6790315232";
+    document.querySelectorAll("a.store").forEach(a=>{ a.href = asUrl; });
     try{ localStorage.setItem("nota-lang", lang); }catch(e){}
   }
   function pickInitial(){
